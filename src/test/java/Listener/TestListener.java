@@ -10,7 +10,6 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -98,8 +97,8 @@ public class TestListener extends BaseTest implements ITestListener {
             System.out.println(systemName);
             if(systemName.contains("window")||systemName.contains("mac os x")){
                 try {
-                    String relativelyPath=System.getProperty("user.dir");
-                    recorder = new ATUTestRecorder(relativelyPath,getTestMethodName(iTestResult), false);
+                    String relativelyPath=System.getProperty("user.dir")+"/test-output/TestrecordSave";
+                    recorder = new ATUTestRecorder(relativelyPath,getTestMethodName(iTestResult), false);//true开启
                 } catch (ATUTestRecorderException e) {
                     e.printStackTrace();
                 }

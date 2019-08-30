@@ -10,24 +10,24 @@
 
 package testcase;
 
+import Listener.ExtentTestNGIReporterListener;
 import Listener.TestListener;
-import org.testng.annotations.Listeners;
-import pageclasses.Elements;
+import core.BaseTest;
 import io.qameta.allure.*;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import core.BaseTest;
+import pageclasses.Elements;
 import utilities.UtilProperties;
 
-@Listeners({TestListener.class})
+@Listeners({TestListener.class,ExtentTestNGIReporterListener.class})//java多个listener监听方法
 public class LoginPageCase extends BaseTest {
     @BeforeMethod
     @Override
     public void setUp() throws Exception {
         super.setUp();
-        //driver.get("http://uatmember.niceloo.com");//测试环境uat
-        driver.get("http://member.niceloo.com");//线上环境
+        driver.get("http://member.niceloo.com");//线上环境  测试环境uat:http://uatmember.niceloo.com
 // 初始化前置条件：1. 登录 --- click ---> login----->学习中心
         sp.inputText(Elements.id_by, Elements.username, "18103835542");
         sp.inputText(Elements.id_by, Elements.password, "1qaz!QAZ");
@@ -44,9 +44,9 @@ public class LoginPageCase extends BaseTest {
         driver.quit();
     }
 
-    @Story("流程1_用户答疑")
-    @Feature("")
-    @Description("")
+    @Story("流程1_网站用户答疑模块")
+    @Feature("用户答疑问题提交")
+    @Description("填写答疑问卷上传图片")
     @Severity(SeverityLevel.BLOCKER)
     @Test(priority = 1)
     public void QuestionAnswerCase() throws Exception {
@@ -76,7 +76,7 @@ public class LoginPageCase extends BaseTest {
         sp.selectSelectByIndex(Elements.xpath_by,Elements.Subjects,2);
 
         //po模式封装:页面类主要是元素定位和页面操作写成函数，供测试类调用
-//        页面类.元素.（操作方法：输入值）；读取用例数据
+//      页面类.元素.（操作方法：输入值）；读取用例数据
 //      sp.problemDescText(driver).sendKeys(UtilProperties.getProperties("problemDescTextValue"));
 //      页面类.控件函数（driver,动作或输入值等参数）
 //      sp.sendkeyText(driver,UtilProperties.getProperties("problemDescTextValue"));
@@ -84,8 +84,6 @@ public class LoginPageCase extends BaseTest {
         sp.problemDescTextSend(driver,UtilProperties.getProperties("problemDescTextValue"));
         sp.uploadButtonClick(driver);
 
-
-//        sp.uploadButton(driver).click();
 //图片上传：非input类型上传文件需要用AutoIT插件或robot方式
         String imagepath ="D:\\webui_saveScreen\\selenium.jpg";
         sp.UploadFileByRobot(imagepath);
