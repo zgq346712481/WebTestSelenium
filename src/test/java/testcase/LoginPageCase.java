@@ -1,6 +1,5 @@
 /**
  *
- * 此文件由龙测科技(1.0)自动产生。
  * allure驱动解压设置环境变量
  *启动服务查看项目生成的测试报告
  *allure server allure-results
@@ -11,6 +10,7 @@
 package testcase;
 
 import Listener.ExtentTestNGIReporterListener;
+import Listener.SendEmailListener;
 import Listener.TestListener;
 import core.BaseTest;
 import io.qameta.allure.*;
@@ -41,6 +41,8 @@ public class LoginPageCase extends BaseTest {
 
     @AfterMethod(alwaysRun = true)
     public void end() throws Exception {
+        SendEmailListener sendTestReport= new SendEmailListener();
+        sendTestReport.sendMailTestReport();//测试执行完毕发送测试报告到QQ邮箱
         driver.quit();
     }
 
