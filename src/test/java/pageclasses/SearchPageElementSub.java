@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utilities.UtilProperties;
-
 import java.io.IOException;
 
 public class SearchPageElementSub extends SearchPageElementBase {
@@ -26,6 +25,27 @@ public class SearchPageElementSub extends SearchPageElementBase {
      * @param driver
      * @return
      */
+
+
+    //针对页面的登录操作公共对象封装成函数
+    public static void pageLogin(WebDriver driver, String usernameValue,String passwordValue) throws IOException, InterruptedException {
+        driver.get(UtilProperties.getProperties("webSiteURL"));
+//      System.out.println("element_now:"+UtilProperties.getProperties("username"));
+        element01  =  driver.findElement(By.id(UtilProperties.getProperties("username")));
+        element01.sendKeys(usernameValue);
+        element02  =  driver.findElement(By.id(UtilProperties.getProperties("passWord")));
+        element02.sendKeys(passwordValue);
+        element03  =  driver.findElement(By.id(UtilProperties.getProperties("loginButton")));
+        element03.click();
+//        sp.waitForVisible(Elements.id_by, Elements.user);
+//        sp.isElementExist(Elements.xpath_by, Elements.account_information);
+//        sp.assertDtContain(Elements.id_by, Elements.user, "yl18103835542"); //对个人账号信息断言验证
+        System.out.println("欢迎你，登录成功到优路大课堂，尽情学习吧！！！");
+        Thread.sleep(1000);
+    }
+
+
+
     //页面元素控件查找封装方法
     public static WebElement problemDescText(WebDriver driver) throws IOException {
         element = driver.findElement(By.xpath(UtilProperties.getProperties("problemDescTextXpath")));
@@ -60,5 +80,7 @@ public class SearchPageElementSub extends SearchPageElementBase {
         element = uploadButton(driver);
         element.click();
     }
+
+
 
 }

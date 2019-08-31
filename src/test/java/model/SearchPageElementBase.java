@@ -32,7 +32,12 @@ public class SearchPageElementBase {
     private WebDriver driver;
     //首先声明一个WebElement类型的变量
     public static WebElement element = null ;
-//    public SearchPageElementBase sp;
+    public static WebElement element01 = null ;
+    public static WebElement element02 = null ;
+    public static WebElement element03 = null ;
+    public static WebElement element04 = null ;
+
+    //    public SearchPageElementBase sp;
     private boolean acceptNextAlert = true;
     public int waitTime = 5;
     public static Logger logger = Logger.getLogger(SearchPageElementBase.class);//记录日志

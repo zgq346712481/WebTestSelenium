@@ -1,10 +1,9 @@
 /**
- *
- * allure驱动解压设置环境变量
- *启动服务查看项目生成的测试报告
- *allure server allure-results
- *http://192.168.15.58:54811/index.html#
- *
+ * po模式封装:页面类主要是元素定位和页面操作写成函数，供测试类调用
+ * 页面类.元素.（操作方法：输入值）；读取用例数据
+ *  sp.problemDescText(driver).sendKeys(UtilProperties.getProperties("problemDescTextValue"));
+ * 页面类.控件函数（driver,动作或输入值等参数）
+ * sp.sendkeyText(driver,UtilProperties.getProperties("problemDescTextValue"));
  */
 
 package testcase;
@@ -19,6 +18,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pageclasses.Elements;
+import pageclasses.SearchPageElementSub;
 import utilities.UtilProperties;
 
 @Listeners({TestListener.class,ExtentTestNGIReporterListener.class})//java多个listener监听方法
@@ -26,17 +26,9 @@ public class LoginPageCase extends BaseTest {
     @BeforeMethod
     @Override
     public void setUp() throws Exception {
+        // 初始化前置条件：1. 登录 --- click ---> login----->跳转到学习首页
         super.setUp();
-        driver.get("http://member.niceloo.com");//线上环境  测试环境uat:http://uatmember.niceloo.com
-// 初始化前置条件：1. 登录 --- click ---> login----->学习中心
-        sp.inputText(Elements.id_by, Elements.username, "18103835542");
-        sp.inputText(Elements.id_by, Elements.password, "1qaz!QAZ");
-        sp.click(Elements.id_by, Elements.id);
-        System.out.println("欢迎你，登录成功！！！");
-        sp.waitForVisible(Elements.id_by, Elements.user);
-        sp.isElementExist(Elements.xpath_by, Elements.account_information);
-        sp.assertDtContain(Elements.id_by, Elements.user, "yl18103835542"); //对个人账号信息断言验证
-        System.out.println("欢迎你，来到优路大课堂，尽情学习吧！！！");
+        SearchPageElementSub.pageLogin(driver,UtilProperties.getProperties("usernameValue"),UtilProperties.getProperties("passwordValue"));
     }
 
     @AfterMethod(alwaysRun = true)
@@ -74,15 +66,9 @@ public class LoginPageCase extends BaseTest {
         sp.selectSelectByIndex(Elements.xpath_by,Elements.Subordinate_projects,2);
 //        "西药法规"选择器：依赖第一个选择器选项的关联内容
         Thread.sleep(2000);
+
         sp.click(Elements.xpath_by, Elements.Subjects);
         sp.selectSelectByIndex(Elements.xpath_by,Elements.Subjects,2);
-
-        //po模式封装:页面类主要是元素定位和页面操作写成函数，供测试类调用
-//      页面类.元素.（操作方法：输入值）；读取用例数据
-//      sp.problemDescText(driver).sendKeys(UtilProperties.getProperties("problemDescTextValue"));
-//      页面类.控件函数（driver,动作或输入值等参数）
-//      sp.sendkeyText(driver,UtilProperties.getProperties("problemDescTextValue"));
-
         sp.problemDescTextSend(driver,UtilProperties.getProperties("problemDescTextValue"));
         sp.uploadButtonClick(driver);
 
