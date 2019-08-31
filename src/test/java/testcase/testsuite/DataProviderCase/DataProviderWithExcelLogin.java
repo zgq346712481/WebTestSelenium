@@ -26,11 +26,11 @@ public class DataProviderWithExcelLogin {
 
     }
 
-    @Test(dataProvider = "Authentication")
+    @Test(dataProvider = "Authentication")//数据提供者程序函数,dataProvider提供传递测测试数据，从excel表格中按行列一词读取对应单元格测试数据
     public void Login(String sUserName, String sPassword) throws InterruptedException {
         driver.findElement(By.id("txtUserName")).click();
         Thread.sleep(1000);
-        driver.findElement(By.id("txtUserName")).sendKeys(sUserName);
+        driver.findElement(By.id("txtUserName")).sendKeys(sUserName);//要跟用例表格中对应列名一致，按行列单元格取值
         System.out.println("sUserName:"+sUserName);
         Thread.sleep(1000);
         driver.findElement(By.id("txtUserPwd")).sendKeys(sPassword);
