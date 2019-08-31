@@ -6,7 +6,7 @@
  * sp.sendkeyText(driver,UtilProperties.getProperties("problemDescTextValue"));
  */
 
-package testcase;
+package testcase.testsuite;
 
 import Listener.ExtentTestNGIReporterListener;
 import Listener.SendEmailListener;
@@ -34,7 +34,7 @@ public class LoginPageCase extends BaseTest {
     @AfterMethod(alwaysRun = true)
     public void end() throws Exception {
         SendEmailListener sendTestReport= new SendEmailListener();
-        sendTestReport.sendMailTestReport();//测试执行完毕发送测试报告到QQ邮箱
+        sendTestReport.sendMailTestReport();//测试执行完毕发送测试报告到QQ邮箱，后续支持钉钉企业微信等机器人发消息
         driver.quit();
     }
 

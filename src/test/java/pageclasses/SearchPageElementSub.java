@@ -27,7 +27,7 @@ public class SearchPageElementSub extends SearchPageElementBase {
      */
 
 
-    //针对页面的登录操作公共对象封装成函数
+    //针对页面的公共登录行为对象封装成函数
     public static void pageLogin(WebDriver driver, String usernameValue,String passwordValue) throws IOException, InterruptedException {
         driver.get(UtilProperties.getProperties("webSiteURL"));
 //      System.out.println("element_now:"+UtilProperties.getProperties("username"));
