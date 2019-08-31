@@ -39,12 +39,12 @@ public class ExcelCaseUtils {
             int ci = 0;
             int cj = 0;
             int totalRows = 1;//用例行数
-            int totalCols = 2;//用例列数，用例名称，用户名，密码
+            int totalCols = 2;//用例表格列数：用例名称第0列，用户名第1列，密码第2列，从第1列开始读取数据
             tabArray = new String[totalRows][totalCols];
 
             for (int j = startCol; j <= totalCols; j++, cj++) {
-                tabArray[ci][cj] = getCellData(iTestCaseRow, j);//遍历用例表格中用例列的行号
-                System.out.println(tabArray[ci][cj]);
+                tabArray[ci][cj] = getCellData(iTestCaseRow, j);//遍历用例表格中列的行号
+                System.out.println("tabArray:"+tabArray[ci][cj]);
             }
         }
         catch (FileNotFoundException e) {
@@ -59,14 +59,17 @@ public class ExcelCaseUtils {
     }
 
     //This method is to read the test data from the Excel cell, in this we are passing parameters as Row num and Col num
-    public static String getCellData(int RowNum, int ColNum)//根据行列获取单元格数据
-            throws Exception {
+    public static String getCellData(int RowNum, int ColNum)
+            throws Exception { //根据行列获取单元格数据
+        String CellData;
         try {
             Cell = ExcelWSheet.getRow(RowNum).getCell(ColNum);
-            String CellData = Cell.getStringCellValue();
+            CellData = Cell.getStringCellValue();
             return CellData;
         } catch (Exception e) {
-            return "";
+            String ExceptionPrint= "CellData单元格中内容类型非字符串";
+            System.out.println("CellData单元格中内容类型非字符串:");
+            return "ExceptionPrint";// excel单元格中数字前面加单引号转换为字符串类型： '18103835542
         }
     }
 

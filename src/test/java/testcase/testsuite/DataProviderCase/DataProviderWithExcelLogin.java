@@ -22,11 +22,14 @@ public class DataProviderWithExcelLogin {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("http://member.niceloo.com");
+        Thread.sleep(2000);
+
     }
 
     @Test(dataProvider = "Authentication")
     public void Login(String sUserName, String sPassword) throws InterruptedException {
         driver.findElement(By.id("txtUserName")).click();
+        Thread.sleep(1000);
         driver.findElement(By.id("txtUserName")).sendKeys(sUserName);
         System.out.println("sUserName:"+sUserName);
         Thread.sleep(1000);
@@ -54,7 +57,7 @@ public class DataProviderWithExcelLogin {
         sTestCaseName = ExcelCaseUtils.getTestCaseName(this.toString());
         // Fetching the Test Case row number from the Test Data Sheet
         // Getting the Test Case name to get the TestCase row from the Test Data Excel sheet
-        iTestCaseRow = ExcelCaseUtils.getRowContains(sTestCaseName, 0);
+        iTestCaseRow = ExcelCaseUtils.getRowContains(sTestCaseName, 0);//获取用例名称
         Object[][] testObjArray = ExcelCaseUtils.getTableArray("E:\\IntelliJ_IDEA_workspace\\WebTestSelenium\\src\\test\\java\\testcase\\testdata\\casedata.xlsx", "commonCasetest", iTestCaseRow);
         return (testObjArray);
     }
