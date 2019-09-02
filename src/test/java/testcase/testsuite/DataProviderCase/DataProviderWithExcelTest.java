@@ -43,7 +43,7 @@ public class DataProviderWithExcelTest {
 
     @DataProvider
     public Object[][] Authentication() throws Exception{
-        Object[][] testObjArray = ExcelUtils.getTableArray("D://ToolsQA//OnlineStore//src//testData//TestData.xlsx","Sheet1");
+        Object[][] testObjArray = ExcelUtils.getTableArray("E:\\IntelliJ_IDEA_workspace\\WebTestSelenium\\src\\test\\java\\testcase\\testdata\\casedata.xlsx","commonCasetest01");
         return (testObjArray);
     }
 

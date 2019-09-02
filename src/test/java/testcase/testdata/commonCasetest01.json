@@ -1,0 +1,164 @@
+{
+	"browserName": "Chrome",
+	"webSiteURL": "http://member.niceloo.com",
+	"version": "1.0",
+	"TestCaseList01": {
+		"TestCaseName": "youlu-login01",
+		"TestCaseID": "yoululogin_caseStep",
+		"caseDes": {
+			"caseContent": [{
+					"TestCaseID": "yoululogin_caseStep01",
+					"caseStep": "打开浏览器",
+					"action": "openBrowser",
+					"pageElementName": "为空",
+					"inputValue": "为空",
+					"locateWay": "为空",
+					"elementValue": "chrome"
+				},
+				{
+					"TestCaseID": "yoululogin_caseStep02",
+					"caseStep": "访问网站首页",
+					"action": "visitWebPage",
+					"pageElementName": "为空",
+					"inputValue": "为空",
+					"locateWay": "为空",
+					"elementValue": "http://member.niceloo.com"
+				},
+				{
+					"TestCaseID": "yoululogin_caseStep03",
+					"caseStep": "输入用户名",
+					"action": "input",
+					"pageElementName": "usernameText",
+					"inputValue": "18103835542",
+					"locateWay": "xpath_by",
+					"elementValue": "//input[@name='username']"
+				},
+				{
+					"TestCaseID": "yoululogin_caseStep04",
+					"caseStep": "输入密码",
+					"action": "input",
+					"pageElementName": "passwdText",
+					"inputValue": "1qaz!QAZ",
+					"locateWay": "xpath_by",
+					"elementValue": "//input[@name='password']"
+				},
+				{
+					"TestCaseID": "yoululogin_caseStep05",
+					"caseStep": "点击登录",
+					"action": "click",
+					"pageElementName": "loginButton",
+					"inputValue": "",
+					"locateWay": "link_text_by",
+					"elementValue": "//input[@name='submit']"
+				}
+			],
+
+			"CaseValidation": [{
+					"TestCaseID": "yoululogin_caseStep01",
+					"assertValue": "登录成功",
+					"mockSet": "登录接口mock"
+				},
+				{
+					"TestCaseID": "yoululogin_caseStep02",
+					"assertValue": "登录成功",
+					"mockSet": "登录接口mock"
+				},
+				{
+					"TestCaseID": "yoululogin_caseStep03",
+					"assertValue": "登录成功",
+					"mockSet": "登录接口mock"
+				},
+				{
+					"TestCaseID": "yoululogin_caseStep04",
+					"assertValue": "登录成功",
+					"mockSet": "登录接口mock"
+				},
+				{
+					"TestCaseID": "yoululogin_caseStep05",
+					"assertValue": "登录成功",
+					"mockSet": "登录接口mock"
+				}
+			],
+
+			"caseResult": [{
+					"TestCaseID": "yoululogin_caseStep01",
+					"actualResult": "fail(返回500)",
+					"testResult": "ok"
+				},
+				{
+					"TestCaseID": "yoululogin_caseStep02",
+					"actualResult": "fail(返回501)",
+					"testResult": "ok"
+				},
+				{
+					"TestCaseID": "yoululogin_caseStep03",
+					"actualResult": "fail(返回502)",
+					"testResult": "ok"
+				},
+				{
+					"TestCaseID": "yoululogin_caseStep04",
+					"actualResult": "fail(返回503)",
+					"testResult": "ok"
+				},
+				{
+					"TestCaseID": "yoululogin_caseStep05",
+					"actualResult": "fail(返回504)",
+					"testResult": "ok"
+				}
+			]
+
+		}
+	},
+
+
+	"TestCaseList02": {
+		"TestCaseName": "QuestionAnswerCase02",
+		"TestCaseID": "QuestionAnswerCaseStep",
+		"caseDes": {
+			"caseContent": [{
+					"TestCaseID": "QuestionAnswerCaseStep01",
+					"caseStep": "输入问题",
+					"action": "click",
+					"pageElementName": "inputText",
+					"inputValue": "",
+					"locateWay": "link_text_by",
+					"elementValue": "//input[@name='submit']"
+				},
+				{
+					"TestCaseID": "QuestionAnswerCaseStep02",
+					"caseStep": "上传提交",
+					"action": "click",
+					"pageElementName": "UploadFileByRobot",
+					"inputValue": "",
+					"locateWay": "link_text_by",
+					"elementValue": "//input[@name='submit']"
+				}
+			],
+
+			"CaseValidation": [{
+					"TestCaseID": "uestionAnswerCaseStep01",
+					"assertValue": "登录成功",
+					"mockSet": "登录接口mock"
+				},
+				{
+					"TestCaseID": "QuestionAnswerCaseStep02",
+					"assertValue": "登录成功",
+					"mockSet": "登录接口mock"
+				}
+			],
+
+			"caseResult": [{
+					"TestCaseID": "QuestionAnswerCaseStep01",
+					"actualResult": "fail(返回500)",
+					"testResult": "ok"
+				},
+				{
+					"TestCaseID": "QuestionAnswerCaseStep02",
+					"actualResult": "fail(返回500)",
+					"testResult": "fail"
+				}
+			]
+
+		}
+	}
+}
