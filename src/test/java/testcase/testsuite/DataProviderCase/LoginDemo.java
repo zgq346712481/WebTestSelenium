@@ -12,7 +12,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 
 @Listeners({TestListener.class,ExtentTestNGIReporterListener.class})//java多个listener监听方法
-public class DataProviderExceldDemo extends BaseTest {
+public class LoginDemo extends BaseTest {
     @BeforeMethod
     @Override
     public void setUp() throws Exception {
