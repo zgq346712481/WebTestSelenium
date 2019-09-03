@@ -3,9 +3,9 @@
 	"caseDes": {"webSiteURL": "http://member.niceloo.com",
 		"version": "1.0"
 	},
-	"CaseSuit": [{
-			"TestCaseName": "youlu-login01",
-			"TestCaseID": "yoululogin_caseStep01",
+	"caseSuitList": [{
+			"testCaseName": "youlu-login01",
+			"testCaseID": "yoululogin_caseStep01",
 			"caseStep": "打开浏览器",
 			"action": "openBrowser",
 			"pageElementName": "空值",
@@ -18,8 +18,8 @@
 			"testResult": "ok"
 		},
 		{
-			"TestCaseName": "youlu-login02",
-			"TestCaseID": "yoululogin_caseStep02",
+			"testCaseName": "youlu-login02",
+			"testCaseID": "yoululogin_caseStep02",
 			"caseStep": "访问网站首页",
 			"action": "visitWebPage",
 			"pageElementName": "空值",
