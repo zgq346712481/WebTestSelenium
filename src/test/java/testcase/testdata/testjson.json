@@ -1,0 +1,35 @@
+{
+	"browserName": "Chrome",
+	"webSiteURL": "http://member.niceloo.com",
+	"version": "1.0",
+	"useCaseSuit": [{
+			"TestCaseName": "youlu-login",
+			"TestCaseID": "yoululogin_caseStep01",
+			"caseStep": "打开浏览器",
+			"action": "openBrowser",
+			"pageElementName": "空值",
+			"inputValue": "空值",
+			"locateWay": "空值",
+			"elementValue": "chrome",
+			"assertValue": "URL跳转",
+			"mockSet": "空值",
+			"actualResult": "fail(返回500)",
+			"testResult": "ok"
+		},
+		{
+			"TestCaseName": "youlu-login",
+			"TestCaseID": "yoululogin_caseStep02",
+			"caseStep": "访问网站首页",
+			"action": "visitWebPage",
+			"pageElementName": "空值",
+			"inputValue": "空值",
+			"locateWay": "空值",
+			"elementValue": "http://member.niceloo.com",
+			"assertValue": "页面正常",
+			"mockSet": "空值",
+			"actualResult": "fail(返回501)",
+			"testResult": "fail"
+		}
+
+	]
+}
